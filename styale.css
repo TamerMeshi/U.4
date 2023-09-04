@@ -22,3 +22,9 @@ body{
        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
        text-decoration: underline;
    }
+   .count{
+    color: aliceblue;
+   }
+   .button{
+    color: rgb(255, 0, 0);
+   }

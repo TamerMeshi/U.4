@@ -10,40 +10,64 @@ let arr2= [
 ]
 console.log(arr2)
 
-const person=[
-    {name : 'Timur', 'age' : 36, salary : 50000},
-    {name : 'Ivan', 'age' : 17, salary : 20000},
-    {name : 'Anna', 'age' : 16, salary : 10000},
-    {name : 'Oleg', 'age' : 22, salary : 40000},
-    {name : 'Lev', 'age' : 20, salary : 60000},
-    {name : 'Peter', 'age' : 38, salary : 70000},
-    {name : 'Roma', 'age' : 40, salary : 80000},
-    {name : 'Igor', 'age' : 43, salary : 90000},
-    {name : 'Stas', 'age' : 46, salary : 30000},
-    {name : 'Lev', 'age' : 55, salary : 55000}
-]
+
+const person = {
+     'Timur' : 'street 33', 
+     'Valya' : 'street 23',
+     'Anna' : 'street 25',
+     'Peter' : 'street 67', 
+     'Lena' : 'street 87',
+     'Ivan' : 'street 99',
+     'Lev' : 'street 44', 
+     'Alex' : 'street 54',
+     'Roma' : 'street 24',
+     'Rita' : 'street 32'
+     
+}
 console.log(person)
 
 
-let newArr = arr[0]
-arr[0] = arr[arr.length -1]
-arr[arr.length -1] = newArr
-console.log(arr)
 
-let findeSome = person.filter(item => item.age>=18)
+let arr3 = []
+for(let i = 0; i<arr2.length; i++){
+  var arr_in = [];
+  for(let p = 0; p<arr2[i].length; p++){
+    arr_in.push(arr2[i][p] + ' ' + i + ':' + p)
+    //arr3[i][p] = '';
+    }
+  arr3.push(arr_in);
+}
+ console.log(arr3)
+
+
+
+let numbers = []
+Object.values(person).forEach(val => numbers.push(+val.replace(/\D+/,'')))
+
+console.log(numbers)
+
+
+ let redNum = []
+ for(let i= 0 ; i<arr3.length; i++){
+    arr_out = []
+    for(let p= 0 ; p<arr3[i].length; p++){
+    arr_out.push(parseInt(arr3[i][p]))
+       
+    }
+     arr_out= arr_out.reduce((a,b)=> a+b, 0)
+    redNum.push(arr_out)
+ }
+
+ 
+let sumArr3 = redNum.reduce((count, sum) => count+sum, 0)
+console.log(sumArr3)
+
+
+findeSome = Object.values(person).find(item => item === 'street 23')
 console.log(findeSome)
 
 
-findeSome = person.reduce((count, sum) => count+sum.salary, 0)
-console.log(findeSome)
-
-findeSome = person.find(some => some.name === 'Lev')
-console.log(findeSome)
-
-
-findeSome = arr.findIndex(arr => arr=== 3)
-console.log(findeSome)
-
-
+findeSome2 = arr.findIndex(arr => arr=== 3)
+console.log(findeSome2)
 
 
