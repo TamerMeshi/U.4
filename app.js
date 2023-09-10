@@ -1,73 +1,71 @@
-let arr = [1,2,3,4,5,6,7,8,9]
-console.log(arr)
+function fio(l,n,f){
+  return l +" " + n[0] +'.' + f[0]+'.'
 
-
-let arr2= [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
-
-]
-console.log(arr2)
-
-
-const person = {
-     'Timur' : 'street 33', 
-     'Valya' : 'street 23',
-     'Anna' : 'street 25',
-     'Peter' : 'street 67', 
-     'Lena' : 'street 87',
-     'Ivan' : 'street 99',
-     'Lev' : 'street 44', 
-     'Alex' : 'street 54',
-     'Roma' : 'street 24',
-     'Rita' : 'street 32'
-     
 }
-console.log(person)
+console.log(fio('Ivanov','Ivan','Ivanovich'))
 
 
 
-let arr3 = []
-for(let i = 0; i<arr2.length; i++){
-  var arr_in = [];
-  for(let p = 0; p<arr2[i].length; p++){
-    arr_in.push(arr2[i][p] + ' ' + i + ':' + p)
-    //arr3[i][p] = '';
-    }
-  arr3.push(arr_in);
+
+
+let count = 0
+
+function rec(){
+console.log(count)
+  count++
+  if(count>9){
+  return count
 }
- console.log(arr3)
+rec()
+}
+rec()
 
 
 
-let numbers = []
-Object.values(person).forEach(val => numbers.push(+val.replace(/\D+/,'')))
-
-console.log(numbers)
 
 
- let redNum = []
- for(let i= 0 ; i<arr3.length; i++){
-    arr_out = []
-    for(let p= 0 ; p<arr3[i].length; p++){
-    arr_out.push(parseInt(arr3[i][p]))
-       
-    }
-     arr_out= arr_out.reduce((a,b)=> a+b, 0)
-    redNum.push(arr_out)
+
+function formula1 (greenLight){
+  return function(go){
+    console.log(greenLight+go)
+  }
+}
+const rush = formula1('on ')
+console.log(rush('start'))
+
+
+
+
+
+
+
+
+let fio2 = (l,n,f) =>`${l} ${n[0]}.${f[0]}.`
+console.log(fio2('Ivanov','Ivan','Ivanovich'))
+
+
+
+
+function admin(l,n,f, password){
+ if( fio2(l,n,f) == 'Ivanov I.I.'
+  && password == 12345){
+ return console.log( 'Доступ открыт! Добро пожаловть Директор Иванов И.И.')
+ } else{
+  console.log('Доступ закрыт Вы не Директор!')
  }
+}
 
- 
-let sumArr3 = redNum.reduce((count, sum) => count+sum, 0)
-console.log(sumArr3)
-
-
-findeSome = Object.values(person).find(item => item === 'street 23')
-console.log(findeSome)
+console.log(admin('Ivanov', 'Ivan', 'Ivanovich',12345))
 
 
-findeSome2 = arr.findIndex(arr => arr=== 3)
-console.log(findeSome2)
 
+function info (lastName){
+  return function(name){
+    return function(fatherName){
+      return  `${lastName} ${name[0]}.${fatherName[0]}.`
 
+    }
+  }
+}
+const fullName = info('Ivanov')('Ivan')('Ivanivich')
+console.log(fullName)
